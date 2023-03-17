@@ -4,7 +4,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
-#springdoc:
-#  swagger-ui:
+springdoc:
+  springdoc.packagesToScan: org.saloma.patterns.*
+# swagger-ui:
 #    path: /v1/docs
 
