@@ -2,7 +2,6 @@ package org.saloma.patterns.service.impl;
 
 import java.util.Optional;
 
-import org.aspectj.weaver.ast.CallExpr;
 import org.saloma.patterns.model.Address;
 import org.saloma.patterns.model.Customer;
 import org.saloma.patterns.model.dto.CustomerDTO;
@@ -89,7 +88,9 @@ public class CustomerService implements ICustomerService {
 	private Address getAddressOrSave(String cep) {
 		return aRepository.findByCep(cep)
 			.orElseGet(() -> {
-				return viaCepService.consulteCep(cep);
+				Address address = viaCepService.consulteCep(cep);
+				aRepository.save(address);
+				return address;
 			});
 	}
 }
