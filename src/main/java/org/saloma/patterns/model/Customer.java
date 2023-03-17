@@ -1,8 +1,5 @@
 package org.saloma.patterns.model;
 
-//import com.fasterxml.jackson.annotation.JsonIgnore;
-//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -21,7 +18,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-///@JsonIgnoreProperties(value = {"address"})
 public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,6 +27,5 @@ public class Customer {
 	private String cpf;
 	
 	@ManyToOne(fetch =  FetchType.EAGER)
-	//@JsonIgnore
 	private Address address;
 }
